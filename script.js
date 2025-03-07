@@ -185,28 +185,3 @@ function eliminarVenta(index) {
 
 
 
-function exportarVentas() {
-    let ventas = localStorage.getItem("ventas");
-    if (!ventas || ventas === "[]") {
-        mostrarNotificacion("⚠️ No hay ventas para guardar.");
-        return;
-    }
-
-    let blob = new Blob([ventas], { type: "application/json" });
-    let enlace = document.createElement("a");
-
-    // Asegurar compatibilidad en móviles
-    if (navigator.msSaveBlob) {
-        navigator.msSaveBlob(blob, "ventas.json");
-    } else {
-        let url = URL.createObjectURL(blob);
-        enlace.href = url;
-        enlace.download = "ventas.json";
-        document.body.appendChild(enlace);
-        enlace.click();
-        document.body.removeChild(enlace);
-        URL.revokeObjectURL(url);
-    }
-
-    mostrarNotificacion("✅ Registro guardado en Descargas.");
-}
