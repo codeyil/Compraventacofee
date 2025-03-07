@@ -489,18 +489,25 @@ tfoot td {
 
     button {
         font-size: 1rem;
+        
     }
     
-   
-
-
-
-
-
-
-
-
-
-
-
+    #notificacion {
+    transition: opacity 0.5s ease-in-out;
 }
+.pagado {
+    color: green;
+    font-weight: bold;
+}
+.deuda {
+    color: red;
+    font-weight: bold;
+}
+}
+    
+
+
+
+
+
+
