@@ -1,0 +1,551 @@
+/* Fondo y estilo general */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e9f7f1;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s, color 0.3s;
+}
+
+.container {
+    background: #ffffff;
+    width: 80%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+/* Estilo para el título */
+h1 {
+    font-size: 3rem;
+    color: #4caf50;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 2.2rem;
+    color: #333;
+    font-weight: 500;
+    margin-top: 30px;
+}
+
+/* Estilo para los botones */
+button {
+    background: #3b7d73;
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #30765c;
+    transform: scale(1.05);
+}
+
+#modoOscuroBtn {
+    background: #444;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#modoOscuroBtn:hover {
+    background: #222;
+}
+
+/* Inputs y select */
+input, select {
+    width: 90%;
+    padding: 15px;
+    margin: 12px 0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+input:focus, select:focus {
+    border-color: #3b7d73;
+    outline: none;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+}
+
+table th, table td {
+    padding: 20px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+th {
+    background-color: #3b7d73;
+    color: white;
+    font-size: 1.4rem;
+}
+
+td {
+    background-color: #fafafa;
+    font-size: 1.2rem;
+}
+
+tr:nth-child(even) td {
+    background-color: #f4f4f4;
+}
+
+tr:hover td {
+    background-color: #f2f2f2;
+    transform: scale(1.02);
+    transition: 0.2s ease;
+}
+
+/* Estilo de las filas de venta */
+.deuda {
+    color: #f44336;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.pagado {
+    color: #4caf50;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.eliminar-btn {
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.eliminar-btn:hover {
+    background: #c62828;
+}
+
+/* Total row in the footer */
+tfoot td {
+    font-weight: bold;
+    font-size: 1.3rem;
+    background: #e0e0e0;
+    color: #333;
+}
+
+/* Modo oscuro negro */
+.dark-mode {
+    background-color: #000000; /* Fondo negro para el modo oscuro */
+    color: white; /* Texto blanco para mayor contraste */
+}
+
+.dark-mode .container {
+    background: #121212; /* Fondo gris oscuro para el contenedor */
+    color: white; /* Texto blanco en el contenedor */
+}
+
+.dark-mode table th {
+    background-color: #333333; /* Fondo más oscuro para los encabezados de la tabla */
+}
+
+.dark-mode table td {
+    background-color: #222222; /* Fondo oscuro para las celdas */
+    color: white; /* Texto blanco en las celdas */
+}
+
+/* Cambios para asegurar visibilidad de los estados de pago */
+.dark-mode .deuda {
+    color: #f44336; /* Rojo fuerte para las deudas */
+}
+
+.dark-mode .pagado {
+    color: #4caf50; /* Verde para los pagos */
+}
+
+.dark-mode .eliminar-btn {
+    background: #c62828; /* Rojo para el botón de eliminar */
+}
+
+.dark-mode th {
+    color: #fff; /* Blanco para los encabezados de las tablas */
+}
+
+.dark-mode #notificacion {
+    background: #5c6bc0; /* Azul claro para la notificación */
+}
+
+/* Notificación */
+#notificacion {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3b7d73;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    display: none;
+    transition: 0.3s;
+}
+
+/* Modo oscuro ajuste notificación */
+.dark-mode #notificacion {
+    background: #5c6bc0;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    table th, table td {
+        font-size: 1rem;
+        padding: 15px;
+    }
+
+    input, select {
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+}/* Fondo y estilo general */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #3b7d73;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s, color 0.3s;
+}
+
+.container {
+    background: #ffffff;
+    width: 80%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+/* Estilo para el título */
+h1 {
+    font-size: 3rem;
+    color: #4caf50;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 2.2rem;
+    color: #333;
+    font-weight: 500;
+    margin-top: 30px;
+}
+
+/* Estilo para los botones */
+button {
+    background: #3b7d73;
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #30765c;
+    transform: scale(1.05);
+}
+
+#modoOscuroBtn {
+    background: #444;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#modoOscuroBtn:hover {
+    background: #222;
+}
+
+/* Inputs y select */
+input, select {
+    width: 90%;
+    padding: 15px;
+    margin: 12px 0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+input:focus, select:focus {
+    border-color: #3b7d73;
+    outline: none;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+}
+
+table th, table td {
+    padding: 20px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+th {
+    background-color: #3b7d73;
+    color: white;
+    font-size: 1.4rem;
+}
+
+td {
+    background-color: #fafafa;
+    font-size: 1.2rem;
+}
+
+tr:nth-child(even) td {
+    background-color: #f4f4f4;
+}
+
+tr:hover td {
+    background-color: #f2f2f2;
+    transform: scale(1.02);
+    transition: 0.2s ease;
+}
+
+/* Estilo de las filas de venta */
+.deuda {
+    color: #f44336;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.pagado {
+    color: #4caf50;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.eliminar-btn {
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.eliminar-btn:hover {
+    background: #c62828;
+}
+
+/* Total row in the footer */
+tfoot td {
+    font-weight: bold;
+    font-size: 1.3rem;
+    background: #e0e0e0;
+    color: #333;
+}
+
+/* Modo oscuro negro */
+.dark-mode {
+    background-color: #000000; /* Fondo negro para el modo oscuro */
+    color: white; /* Texto blanco para mayor contraste */
+}
+
+.dark-mode .container {
+    background: #121212; /* Fondo gris oscuro para el contenedor */
+    color: white; /* Texto blanco en el contenedor */
+}
+
+.dark-mode table th {
+    background-color: #333333; /* Fondo más oscuro para los encabezados de la tabla */
+}
+
+.dark-mode table td {
+    background-color: #222222; /* Fondo oscuro para las celdas */
+    color: white; /* Texto blanco en las celdas */
+}
+
+/* Cambios para asegurar visibilidad de los estados de pago */
+.dark-mode .deuda {
+    color: #f44336; /* Rojo fuerte para las deudas */
+}
+
+.dark-mode .pagado {
+    color: #4caf50; /* Verde para los pagos */
+}
+
+.dark-mode .eliminar-btn {
+    background: #c62828; /* Rojo para el botón de eliminar */
+}
+
+.dark-mode th {
+    color: #fff; /* Blanco para los encabezados de las tablas */
+}
+
+.dark-mode #notificacion {
+    background: #5c6bc0; /* Azul claro para la notificación */
+}
+
+/* Notificación */
+#notificacion {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3b7d73;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    display: none;
+    transition: 0.3s;
+}
+
+/* Modo oscuro ajuste notificación */
+.dark-mode #notificacion {
+    background: #5c6bc0;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    table th, table td {
+        font-size: 1rem;
+        padding: 15px;
+    }
+
+    input, select {
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+    
+    #abrirAjustesBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #3b7d73;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#menuAjustes {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    width: 300px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: none;
+}
+
+#menuAjustes h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#menuAjustes button {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.oculto {
+    display: none;
+}
+
+.dark-mode #menuAjustes {
+    background: #222;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+}
