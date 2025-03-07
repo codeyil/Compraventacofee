@@ -184,4 +184,33 @@ function eliminarVenta(index) {
 
 
 
+function exportarVentas() {
+    let ventas = localStorage.getItem("ventas");
+    let blob = new Blob([ventas], { type: "application/json" });
+    let a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "ventas.json";
+    a.click();
+}
 
+
+
+
+
+function importarVentas(event) {
+    let file = event.target.files[0];
+    let reader = new FileReader();
+
+    reader.onload = function(e) {
+        try {
+            let ventasImportadas = JSON.parse(e.target.result);
+            localStorage.setItem("ventas", JSON.stringify(ventasImportadas));
+            mostrarVentas();
+            mostrarNotificacion("✅ Ventas importadas correctamente.");
+        } catch (error) {
+            mostrarNotificacion("⚠️ Archivo inválido.");
+        }
+    };
+
+    reader.readAsText(file);
+}
