@@ -236,14 +236,6 @@ tfoot td {
 
 
 
-
-
-
-
-
-
-
-
 .modal {
     display: none;
     position: fixed;
@@ -279,4 +271,106 @@ tfoot td {
 #btnCancelar {
     background: red;
     color: white;
+}
+
+
+
+
+
+
+
+button {
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+
+
+#notificacion {
+    display: none;
+    position: fixed;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #00A8E8;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    transition: top 0.5s ease-in-out;
+}
+
+#notificacion.mostrar {
+    top: 10px;
+}
+
+
+
+
+
+
+body, .container, table, th, td, button {
+    transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Reducimos un poco el tamaño del texto */
+    }
+
+    .container {
+        width: 90%; /* Reducimos el ancho para que no ocupe toda la pantalla */
+        max-width: 400px; /* Limitamos el ancho máximo */
+        margin: 0 auto; /* Centramos el contenido */
+        padding: 10px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+    font-size:12px;
+        padding: 8px;
+        text-align: center;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 8px;
+        width: 90%; /* Hacemos los botones más angostos */
+        margin: 5px auto; /* Centramos los botones */
+        display: block;
+    }
+
+    .pagar-btn, .marcar-btn, .eliminar-btn {
+        font-size: 10px;
+        padding: 6px;
+        width: 90%;
+    }
+
+    input, select {
+        font-size: 14px;
+        padding: 8px;
+        width: 90%; /* Hacemos los inputs más angostos */
+        margin: 5px auto; /* Centramos */
+        display: block;
+    }
+
+    /* Ajuste para la tabla */
+    .tabla-contenedor {
+        width: 100%;
+        overflow-x: auto;
+    }
 }
