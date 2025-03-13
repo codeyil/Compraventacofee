@@ -29,6 +29,15 @@ function registrarVenta() {
   if (!vendedor || isNaN(precioCarga) || isNaN(cantidadKilos) || precioCarga <= 0 || cantidadKilos <= 0) {
     mostrarNotificacion("⚠️ Ingrese valores válidos.");
     return;
+  }function registrarVenta() {
+  let vendedor = document.getElementById("vendedor").value.trim();
+  let precioCarga = parseFloat(document.getElementById("precioCarga").value);
+  let cantidadKilos = parseFloat(document.getElementById("cantidadKilos").value);
+  let estadoPago = document.getElementById("estadoPago").value;
+
+  if (!vendedor || isNaN(precioCarga) || isNaN(cantidadKilos) || precioCarga <= 0 || cantidadKilos <= 0) {
+    mostrarNotificacion("⚠️ Ingrese valores válidos.");
+    return;
   }
 
   let precioPorKilo = precioCarga / 125;
@@ -50,6 +59,35 @@ function registrarVenta() {
   mostrarVentas();
   mostrarNotificacion("✅ Venta registrada con éxito.");
   limpiarCampos();
+
+  // Descargar automáticamente el archivo JSON al guardar la venta
+  exportarVentas();
+}
+
+  let precioPorKilo = precioCarga / 125;
+  let totalPagar = precioPorKilo * cantidadKilos;
+  let fechaHora = obtenerFechaHora();
+
+  let venta = {
+    vendedor,
+    cantidadKilos,
+    totalPagar: totalPagar.toFixed(2), // Mantenemos 2 decimales
+    estadoPago,
+    fechaHora
+  };
+
+  let ventas = JSON.parse(localStorage.getItem("ventas")) || [];
+  ventas.push(venta);
+  localStorage.setItem("ventas", JSON.stringify(ventas));
+
+  mostrarVentas();
+  mostrarNotificacion("✅ Venta registrada con éxito.");
+  limpiarCampos();
+  
+  
+  
+  
+  
 }
 
 function eliminarVenta(index) {
@@ -265,3 +303,13 @@ function actualizarGraficoVentas(ventas) {
 
 
 
+function exportarVentas() {
+  let ventas = localStorage.getItem("ventas");
+  let blob = new Blob([ventas], { type: "application/json" });
+  let a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "ventas.json";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
