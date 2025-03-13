@@ -313,3 +313,60 @@ function exportarVentas() {
   a.click();
   document.body.removeChild(a);
 }
+
+
+
+
+
+
+
+
+
+function importarVentas() {
+    let inputFile = document.getElementById("importarVentasInput");
+    
+    if (!inputFile.files.length) {
+        mostrarNotificacion("⚠️ Seleccione un archivo antes de importar.");
+        return;
+    }
+
+    let file = inputFile.files[0];
+    let reader = new FileReader();
+
+    reader.onload = function(event) {
+        try {
+            let ventasImportadas = JSON.parse(event.target.result);
+
+            // Validar que el archivo tiene datos correctos
+            if (!Array.isArray(ventasImportadas)) {
+                throw new Error("Formato inválido");
+            }
+
+            localStorage.setItem("ventas", JSON.stringify(ventasImportadas));
+            mostrarVentas();
+            mostrarNotificacion("✅ Ventas importadas correctamente.");
+        } catch (error) {
+            mostrarNotificacion("⚠️ Archivo inválido.");
+        }
+    };
+
+    reader.readAsText(file);
+}
+
+
+
+
+
+function mostrarNotificacion(mensaje) {
+    let notificacion = document.getElementById("notificacion");
+    notificacion.innerText = mensaje;
+    notificacion.classList.add("mostrar");
+    notificacion.style.display = "block";
+
+    setTimeout(() => {
+        notificacion.classList.remove("mostrar");
+        setTimeout(() => {
+            notificacion.style.display = "none";
+        }, 500);
+    }, 3000);
+}
