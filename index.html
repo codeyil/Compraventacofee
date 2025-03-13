@@ -83,7 +83,46 @@
     
     
     
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
+    
+    
+    <canvas id="ventasChart"></canvas>
+    
+    
+    
+    
+    
+    <select id="filtroVentas" onchange="filtrarVentas()">
+    <option value="todas">Todas</option>
+    <option value="pagadas">Pagadas</option>
+    <option value="pendientes">Pendientes</option>
+</select>
+<input type="text" id="filtroVendedor" placeholder="Filtrar por vendedor" oninput="filtrarVentas()">
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="modalConfirmacion" class="modal">
+    <div class="modal-contenido">
+        <p id="mensajeConfirmacion"></p>
+        <button id="btnConfirmar" class="btn">✔ Confirmar</button>
+        <button id="btnCancelar" class="btn">❌ Cancelar</button>
+    </div>
+</div>
+
+
+
+
+
     
     
 </body>
