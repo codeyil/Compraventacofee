@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,106 +9,71 @@
 </head>
 <body>
     <div class="container">
-        <h1>Registro de Ventas</h1>
+        <h1>Registro de Ventas</h1><button id="modoOscuroBtn">🌙 Modo Oscuro</button>
 
-        <button id="modoOscuroBtn">🌙 Modo Oscuro</button>
+    <label>👤 Vendedor:</label>
+    <input type="text" id="vendedor" placeholder="Ingrese el nombre">
 
-        <label>👤 Vendedor:</label>
-        <input type="text" id="vendedor" placeholder="Ingrese el nombre">
+    <label>💰 Precio por carga (125kg):</label>
+    <input type="number" id="precioCarga" placeholder="Ingrese el precio">
 
-        <label>💰 Precio por carga (125kg):</label>
-        <input type="number" id="precioCarga" placeholder="Ingrese el precio">
+    <label>⚖️ Cantidad de kilos vendidos:</label>
+    <input type="number" id="cantidadKilos" placeholder="Ingrese los kilos vendidos">
 
-        <label>⚖️ Cantidad de kilos vendidos:</label>
-        <input type="number" id="cantidadKilos" placeholder="Ingrese los kilos vendidos">
+    <label>💵 Estado de Pago:</label>
+    <select id="estadoPago">
+        <option value="Pagado">Pagado ✅</option>
+        <option value="Debe">Debe ❌</option>
+    </select>
 
-        <label>💵 Estado de Pago:</label>
-        <select id="estadoPago">
-            <option value="Pagado">Pagado ✅</option>
-            <option value="Debe">Debe ❌</option>
-        </select>
+    <button onclick="registrarVenta()">✅ Registrar Venta</button>
 
-        <button onclick="registrarVenta()">✅ Registrar Venta</button>
+    <h2>📋 Ventas Registradas</h2>
 
-        <h2>📋 Ventas Registradas</h2>
+    <table id="tablaVentas">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Vendedor</th>
+                <th>Cantidad (kg)</th>
+                <th>Total ($)</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="listaVentas"></tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">Total:</td>
+                <td id="totalKilos">0 kg</td>
+                <td id="totalDinero">$0.00</td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Total Pagado:</td>
+                <td id="totalPagado">$0.00</td>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Total a Pagar:</td>
+                <td id="totalDebe">$0.00</td>
+                <td colspan="3"></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
 
-        <table id="tablaVentas">
-            <thead>
-                <tr>
-                    <th>Fecha</th>
-                    <th>Vendedor</th>
-                    <th>Cantidad (kg)</th>
-                    <th>Total ($)</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody id="listaVentas"></tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="2">Total:</td>
-                    <td id="totalKilos">0 kg</td>
-                    <td id="totalDinero">$0.00</td>
-                    <td colspan="2"></td>
-                </tr>
-                <tr>
-                    <td colspan="2">Total Pagado:</td>
-                    <td id="totalPagado">$0.00</td>
-                    <td colspan="3"></td>
-                </tr>
-                <tr>
-                    <td colspan="2">Total a Pagar:</td>
-                    <td id="totalDebe">$0.00</td>
-                    <td colspan="3"></td>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
+<div id="notificacion"></div>
 
-    <div id="notificacion"></div>
+<script src="script.js"></script>
 
-    <script src="script.js"></script>
-    
-    
-    
-    
 <button onclick="exportarVentas()">📂 Guardar Registro</button>
-<input type="file" id="importarArchivo" style="display: none;" onchange="importarVentas(event)">
-<button onclick="document.getElementById('importarArchivo').click()">📥 Importar Registro</button>
 
-    
-    
-    
-    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    
-    
-    <canvas id="ventasChart"></canvas>
-    
-    
-    
-    
-    
-    <select id="filtroVentas" onchange="filtrarVentas()">
-    <option value="todas">Todas</option>
-    <option value="pagadas">Pagadas</option>
-    <option value="pendientes">Pendientes</option>
-</select>
-<input type="text" id="filtroVendedor" placeholder="Filtrar por vendedor" oninput="filtrarVentas()">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 
-
-
-
-
-
-
-
-
+<canvas id="ventasChart"></canvas>
 
 <div id="modalConfirmacion" class="modal">
     <div class="modal-contenido">
@@ -117,13 +81,7 @@
         <button id="btnConfirmar" class="btn">✔ Confirmar</button>
         <button id="btnCancelar" class="btn">❌ Cancelar</button>
     </div>
-</div>
+</div><input type="file" id="importarVentasInput" accept=".json">
+<button onclick="importarVentas()">📂 Importar Ventas</button></body>
+</html>Quiero que los iconos sean más profesionales y bonitos
 
-
-
-
-
-    
-    
-</body>
-</html>
